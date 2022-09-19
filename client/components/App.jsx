@@ -20,8 +20,8 @@ function App() {
       <Routes>
         {/* If we go into '/', it will show Home component: */}
         <Route path="/" element={<Home />}></Route>
-        <Route path="/movie/:id" element={<AddMovie />}></Route>
-        <Route path="/add" element={<MovieDetails />}></Route>
+        <Route path="/movie/:id" element={<MovieDetails />}></Route>
+        <Route path="/add" element={<AddMovie />}></Route>
       </Routes>
     </>
   )
