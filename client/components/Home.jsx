@@ -4,16 +4,30 @@ import { useSelector } from 'react-redux'
 function Home() {
   const movies = useSelector((store) => store.movies)
   console.log(movies)
+  const unwatched = movies.filter((movie) => movie.watched == false)
+  const watched = movies.filter((movie) => movie.watched == true)
 
   return (
     <>
       <h2>Home</h2>
-      {movies.map((movie) => {
-        const { title, imdb_id, watched, img } = movie
+      <h3>Movies to watch:</h3>
+      {unwatched.map((movie) => {
         return (
           <div key={movie.id}>
-            <img className="home-img" src={img} alt="movie" />
-            <p>{title}</p>
+            <img className="home-img" src={movie.img} alt="movie" />
+            <p>{movie.title}</p>
+            <p>Wathched: {movie.watched}</p>
+          </div>
+        )
+      })}
+
+      <h3>Movies that I've seen:</h3>
+      {watched.map((movie) => {
+        return (
+          <div key={movie.id}>
+            <img className="home-img" src={movie.img} alt="movie" />
+            <p>{movie.title}</p>
+            <p>Wathched: {movie.watched}</p>
           </div>
         )
       })}

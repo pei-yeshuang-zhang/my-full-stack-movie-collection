@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route, Link, useLocation } from 'react-router-dom'
 import { getTheMovies } from '../actions/movies'
 
 import AddMovie from './AddMovie'
@@ -9,15 +9,19 @@ import MovieDetails from './MovieDetails'
 
 function App() {
   const dispatch = useDispatch()
+  const location = useLocation()
+
+  // Check the path we are in
+  const isHome = location.pathname === '/'
+
   // TODO: only trigger on load
   dispatch(getTheMovies())
   return (
     <>
       <header className="header">
         <h1>The flicks</h1>
-        <Link to="/add">Add Movies</Link>
-        <br />
-        <Link to="/">Home</Link>
+
+        {isHome ? <Link to="/add">Add Movies</Link> : <Link to="/">Home</Link>}
       </header>
       <section className="main" />
       <Routes>
