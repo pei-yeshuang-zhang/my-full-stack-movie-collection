@@ -21,7 +21,7 @@ function Home() {
         )
       })}
 
-      <h3>Movies that I've seen:</h3>
+      <h3>Movies that I{"'"}ve seen:</h3>
       {watched.map((movie) => {
         return (
           <div key={movie.id}>
