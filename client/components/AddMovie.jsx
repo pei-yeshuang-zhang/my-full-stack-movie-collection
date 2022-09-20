@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+
 import { searchForMovie } from '../apis/imdb'
+import { addAMoive } from '../actions/movies'
 
 function AddMovie() {
-  const [movieSearch, setMovieSearch] = useState('helo :)')
+  const [movieSearch, setMovieSearch] = useState('')
   const [results, setResults] = useState([])
+  const dispatch = useDispatch()
 
   const handleSearch = async (e) => {
     e.preventDefault()
@@ -15,6 +19,10 @@ function AddMovie() {
 
   const handleTyping = (e) => {
     setMovieSearch(e.target.value) // As we type, it will update the value to state
+  }
+
+  const handleAdd = (movie) => {
+    dispatch(addAMoive(movie))
   }
 
   return (
@@ -31,7 +39,11 @@ function AddMovie() {
         <button>Search</button>
       </form>
       {results.map((movie) => (
-        <p key={movie.id}>{movie.title}</p>
+        <div key={movie.id}>
+          <img className="result-img" src={movie.image} alt="movie" />
+          <p>{movie.title}</p>
+          <button onClick={() => handleAdd(movie)}>Save</button>
+        </div>
       ))}
     </>
   )

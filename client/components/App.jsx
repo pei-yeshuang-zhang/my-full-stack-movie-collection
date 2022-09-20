@@ -9,12 +9,15 @@ import MovieDetails from './MovieDetails'
 
 function App() {
   const dispatch = useDispatch()
+  // TODO: only trigger on load
   dispatch(getTheMovies())
   return (
     <>
       <header className="header">
         <h1>The flicks</h1>
         <Link to="/add">Add Movies</Link>
+        <br />
+        <Link to="/">Home</Link>
       </header>
       <section className="main" />
       <Routes>
