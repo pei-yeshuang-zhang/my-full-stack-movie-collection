@@ -9,7 +9,6 @@ function Home() {
 
   return (
     <>
-      <h2>Home</h2>
       <h3>Movies to watch:</h3>
       {unwatched.map((movie) => {
         return (

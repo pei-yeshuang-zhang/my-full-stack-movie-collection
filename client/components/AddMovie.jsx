@@ -33,7 +33,6 @@ function AddMovie() {
 
   return (
     <>
-      <h2>Add Movie</h2>
       <form onSubmit={handleSearch}>
         <label htmlFor="search">New Movie:</label>
         <input
