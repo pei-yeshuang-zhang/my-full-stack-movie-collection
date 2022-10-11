@@ -6,12 +6,14 @@ function MovieDetails() {
   const { id } = useParams()
   const movies = useSelector((state) => state.movies)
   console.log('movies:', movies)
-  const movie = movies[id]
+  const movie = movies[id - 1]
   console.log('movie:', movie)
   // const movie = movies[id].imdb_id
   return (
     <>
-      <h2>Movie Details</h2>
+      <h2>
+        Movie Details:{id},{movie.title}
+      </h2>
     </>
   )
 }
