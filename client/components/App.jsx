@@ -20,7 +20,6 @@ function App() {
     <>
       <header className="header">
         <h1>The flicks</h1>
-
         {isHome ? <Link to="/add">Add Movies</Link> : <Link to="/">Home</Link>}
       </header>
       <section className="main" />
