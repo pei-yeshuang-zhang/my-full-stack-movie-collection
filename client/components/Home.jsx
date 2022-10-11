@@ -16,8 +16,7 @@ function Home() {
           <div key={movie.id}>
             <img className="home-img" src={movie.img} alt="movie" />
             {/* <p>{movie.title}</p> */}
-            <Link to="/movie/:id">{movie.title}</Link>
-            <p>Wathched: {movie.watched}</p>
+            {/* <Link to="/movie/:id">{movie.title}</Link> */}
           </div>
         )
       })}
