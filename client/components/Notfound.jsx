@@ -7,7 +7,7 @@ const Notfound = () => {
     () =>
       setTimeout(() => {
         navigate('/')
-      }, 1000),
+      }, 1500),
     []
   )
   return <h1>404 Not Found</h1>
