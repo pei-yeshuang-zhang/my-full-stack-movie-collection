@@ -1,6 +1,5 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 
 function Home() {
   const movies = useSelector((store) => store.movies)
@@ -15,8 +14,8 @@ function Home() {
         return (
           <div key={movie.id}>
             <img className="home-img" src={movie.img} alt="movie" />
-            {/* <p>{movie.title}</p> */}
-            {/* <Link to="/movie/:id">{movie.title}</Link> */}
+            <p>{movie.title}</p>
+            <p>Wathched: {movie.watched}</p>
           </div>
         )
       })}
@@ -26,8 +25,7 @@ function Home() {
         return (
           <div key={movie.id}>
             <img className="home-img" src={movie.img} alt="movie" />
-            {/* <p>{movie.title}</p> */}
-            <Link to="/movie/:id">{movie.title}</Link>
+            <p>{movie.title}</p>
             <p>Wathched: {movie.watched}</p>
           </div>
         )
