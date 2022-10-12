@@ -1,19 +1,30 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
+import { fetchMovieDetails } from '../apis/imdb'
+// import { getMovieDetails } from '../actions/movies'
 
 function MovieDetails() {
-  const { id } = useParams()
-  const movies = useSelector((state) => state.movies)
-  console.log('movies:', movies)
-  const movie = movies[id - 1]
-  console.log('movie:', movie)
-  // const movie = movies[id].imdb_id
+  const { imdb_id } = useParams()
+
+  const [movie, setMovie] = useState([])
+
+  async function getMovieDetails(e) {
+    if (e && e.preventDefault) {
+      e.preventDefault()
+    }
+    const details = await fetchMovieDetails(imdb_id)
+    setMovie(details)
+  }
+
+  useEffect(getMovieDetails(), [])
+
+  const { title, plot } = movie ? movie : {}
+
   return (
     <>
-      <h2>
-        Movie Details:{id},{movie.title}
-      </h2>
+      <h2>{title}</h2>
+      <p>{plot}</p>
     </>
   )
 }

@@ -15,7 +15,11 @@
 //   },
 // ]
 
-import { SAVE_MOVIES, SAVE_ONE_MOVIE } from '../actions/movies'
+import {
+  SAVE_MOVIES,
+  SAVE_ONE_MOVIE,
+  // SAVE_MOVIE_DETAILS,
+} from '../actions/movies'
 
 function reducer(state = [], action) {
   const { type, payload } = action
@@ -24,6 +28,8 @@ function reducer(state = [], action) {
       return payload
     case SAVE_ONE_MOVIE:
       return [payload, ...state]
+    // case SAVE_MOVIE_DETAILS:
+    //   return payload
     default:
       return state
   }

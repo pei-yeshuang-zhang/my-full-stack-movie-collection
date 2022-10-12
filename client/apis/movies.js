@@ -7,7 +7,7 @@ export function fetchAllMovies() {
   }) // return an array, not the whole res
 }
 
-export function postMoive(movie) {
+export function postMovie(movie) {
   return request
     .post('/api/v1/movies')
     .send(movie)

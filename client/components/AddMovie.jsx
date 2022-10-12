@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { searchForMovie } from '../apis/imdb'
-import { addAMoive } from '../actions/movies'
+import { addAMovie } from '../actions/movies'
 
 function AddMovie() {
   // const movies = useSelector((store) => store.movies)
@@ -10,6 +10,7 @@ function AddMovie() {
   const alreayAddedIds = useSelector((store) =>
     store.movies.map((movie) => movie.imdb_id)
   )
+  console.log('alreayAddedIds: ', alreayAddedIds)
 
   const [movieSearch, setMovieSearch] = useState('')
   const [results, setResults] = useState([])
@@ -18,8 +19,8 @@ function AddMovie() {
   const handleSearch = async (e) => {
     e.preventDefault()
     // console.log('SUBMIT', movieSearch)
-    const movieSuggetstions = await searchForMovie(movieSearch)
-    setResults(movieSuggetstions)
+    const movieSuggestions = await searchForMovie(movieSearch)
+    setResults(movieSuggestions)
     setMovieSearch('') // Set the input value back to empty
   }
 
@@ -28,7 +29,7 @@ function AddMovie() {
   }
 
   const handleAdd = (movie) => {
-    dispatch(addAMoive(movie))
+    dispatch(addAMovie(movie))
   }
 
   return (
