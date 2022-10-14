@@ -13,7 +13,7 @@ function AddMovie() {
   console.log('alreayAddedIds: ', alreayAddedIds)
 
   const [movieSearch, setMovieSearch] = useState('')
-  const [results, setResults] = useState([])
+  const [results, setResults] = useState(null)
   const dispatch = useDispatch()
 
   const handleSearch = async (e) => {
@@ -44,20 +44,21 @@ function AddMovie() {
         />
         <button>Search</button>
       </form>
-      {results.map((movie) => (
-        <div key={movie.id}>
-          <img className="result-img" src={movie.image} alt="movie" />
-          <p>{movie.title}</p>
+
+      {results ? (
+        <>
+          <img className="result-img" src={results.Poster} alt="movie" />
+          <p>{results.Title}</p>
           <button
-            onClick={() => handleAdd(movie)}
-            // disabled={Boolean(movies.find((film) => film.imdb_id === movie.id))}
-            // Another way to write it:
-            disabled={alreayAddedIds.includes(movie.id)}
+            onClick={() => handleAdd(results)}
+            disabled={alreayAddedIds.includes(results.imdbID)}
           >
             Save
           </button>
-        </div>
-      ))}
+        </>
+      ) : (
+        <></>
+      )}
     </>
   )
 }

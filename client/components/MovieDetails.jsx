@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 // import { useSelector } from 'react-redux'
-import { fetchMovieDetails } from '../apis/imdb'
+// import { fetchMovieDetails } from '../apis/imdb'
 // import { getMovieDetails } from '../actions/movies'
 
 function MovieDetails() {
