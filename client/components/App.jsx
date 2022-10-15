@@ -20,7 +20,7 @@ function App() {
   return (
     <>
       <header className="header">
-        <h1>The flicks</h1>
+        <h1>The Flicks</h1>
       </header>
       <div>
         {isHome ? <Link to="/add">Add Movies</Link> : <Link to="/">Home</Link>}
@@ -28,7 +28,7 @@ function App() {
       <section className="main" />
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/movie/:id" element={<MovieDetails />}></Route>
+        <Route path="/movie/:imdb_id" element={<MovieDetails />}></Route>
         <Route path="/add" element={<AddMovie />}></Route>
         <Route path="*" element={<Notfound />}></Route>
       </Routes>

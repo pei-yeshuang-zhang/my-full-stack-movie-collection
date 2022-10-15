@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { searchForMovie } from '../apis/imdb'
-import { addAMoive } from '../actions/movies'
+import { addAMovie } from '../actions/movies'
 
 function AddMovie() {
   // const movies = useSelector((store) => store.movies)
@@ -12,14 +12,14 @@ function AddMovie() {
   )
 
   const [movieSearch, setMovieSearch] = useState('')
-  const [results, setResults] = useState([])
+  const [results, setResults] = useState(null)
   const dispatch = useDispatch()
 
   const handleSearch = async (e) => {
     e.preventDefault()
-    // console.log('SUBMIT', movieSearch)
-    const movieSuggetstions = await searchForMovie(movieSearch)
-    setResults(movieSuggetstions)
+
+    const movieSuggestions = await searchForMovie(movieSearch)
+    setResults(movieSuggestions)
     setMovieSearch('') // Set the input value back to empty
   }
 
@@ -28,7 +28,7 @@ function AddMovie() {
   }
 
   const handleAdd = (movie) => {
-    dispatch(addAMoive(movie))
+    dispatch(addAMovie(movie))
   }
 
   return (
@@ -43,20 +43,21 @@ function AddMovie() {
         />
         <button>Search</button>
       </form>
-      {results.map((movie) => (
-        <div key={movie.id}>
-          <img className="result-img" src={movie.image} alt="movie" />
-          <p>{movie.title}</p>
+
+      {results ? (
+        <>
+          <img className="result-img" src={results.Poster} alt="movie" />
+          <p>{results.Title}</p>
           <button
-            onClick={() => handleAdd(movie)}
-            // disabled={Boolean(movies.find((film) => film.imdb_id === movie.id))}
-            // Another way to write it:
-            disabled={alreayAddedIds.includes(movie.id)}
+            onClick={() => handleAdd(results)}
+            disabled={alreayAddedIds.includes(results.imdbID)}
           >
             Save
           </button>
-        </div>
-      ))}
+        </>
+      ) : (
+        <></>
+      )}
     </>
   )
 }

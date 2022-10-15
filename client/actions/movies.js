@@ -1,11 +1,13 @@
-const { fetchAllMovies, postMoive } = require('../apis/movies')
+const { fetchAllMovies, postMovie } = require('../apis/movies')
+// const { fetchMovieDetails } = require('../apis/imdb')
 
 // Variables
 export const SAVE_MOVIES = 'SAVE_MOVIES'
 export const SAVE_ONE_MOVIE = 'SAVE_ONE_MOVIE'
+// export const SAVE_MOVIE_DETAILS = 'SAVE_MOVIE_DETAILS'
 
 // Action creators
-function saveMoives(moviesArr) {
+function saveMovies(moviesArr) {
   return {
     type: SAVE_MOVIES,
     payload: moviesArr,
@@ -19,27 +21,41 @@ function saveOneMovie(movieObj) {
   }
 }
 
+// function saveMovieDetails(movieDetails) {
+//   return {
+//     type: SAVE_MOVIE_DETAILS,
+//     payload: movieDetails,
+//   }
+// }
+
 // Thunks: call the api, get data back, then use the action creators to dispatch actions to redux
 export function getTheMovies() {
   // call api
   return async (dispatch) => {
     const movieArr = await fetchAllMovies() // get the data that returned from api, which is the res.body
-    console.log('THUNK: ', movieArr)
     // dispatch action
-    dispatch(saveMoives(movieArr))
+    dispatch(saveMovies(movieArr))
   }
 }
 
-export function addAMoive(movie) {
-  // console.log('movie:', movie)
+export function addAMovie(movie) {
   return async (dispatch) => {
-    const tidyMoive = {
-      title: movie.title,
-      img: movie.image,
-      imdb_id: movie.id,
+    const tidyMovie = {
+      title: movie.Title,
+      img: movie.Poster,
+      imdb_id: movie.imdbID,
+      plot: movie.Plot,
     }
-    // console.log('tidy: ', tidyMoive)
-    const movieFromServer = await postMoive(tidyMoive)
+
+    const movieFromServer = await postMovie(tidyMovie)
     dispatch(saveOneMovie(movieFromServer))
   }
 }
+
+// export function getMovieDetails() {
+//   return async (dispatch) => {
+//     const movieDetails = await fetchMovieDetails()
+//     console.log('Details From thunk: ', movieDetails)
+//     dispatch(saveMovieDetails(movieDetails))
+//   }
+// }
