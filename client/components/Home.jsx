@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 
 function Home() {
   const movies = useSelector((store) => store.movies)
-  // console.log(movies)
   const unwatched = movies.filter((movie) => movie.watched == false)
   const watched = movies.filter((movie) => movie.watched == true)
 
@@ -28,7 +27,7 @@ function Home() {
         return (
           <div key={movie.id}>
             <img className="home-img" src={movie.img} alt="movie" />
-            <Link to={`/movie/${movie.id}`}>
+            <Link to={`/movie/${movie.imdb_id}`}>
               <p>{movie.title}</p>
             </Link>
             <p>Wathched: {movie.watched}</p>

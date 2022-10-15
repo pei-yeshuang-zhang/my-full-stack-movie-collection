@@ -8,6 +8,7 @@ exports.up = function (knex) {
     table.string('title')
     table.string('img')
     table.string('imdb_id')
+    table.string('plot')
     table.boolean('watched').defaultTo(false)
   })
 }

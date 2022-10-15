@@ -42,9 +42,10 @@ export function getTheMovies() {
 export function addAMovie(movie) {
   return async (dispatch) => {
     const tidyMovie = {
-      title: movie.title,
-      img: movie.image,
-      imdb_id: movie.id,
+      title: movie.Title,
+      img: movie.Poster,
+      imdb_id: movie.imdbID,
+      plot: movie.Plot,
     }
 
     const movieFromServer = await postMovie(tidyMovie)

@@ -1,18 +1,12 @@
 import request from 'superagent'
 import { key } from '../../key'
 
-const imdbUrlSearch = 'https://imdb-api.com/en/API/SearchMovie/'
-const imdbUrlTitle = 'https://imdb-api.com/en/API/Title/'
+const imdbUrlSearch = 'http://www.omdbapi.com/?apikey='
 
 export function searchForMovie(movie) {
   // The param 'movie' is from AddMoive.movieSearch
-  return request.get(`${imdbUrlSearch}${key}/${movie}`).then((res) => {
-    return res.body.results
-  })
-}
-
-export function fetchMovieDetails(imdbID) {
-  return request.get(`${imdbUrlTitle}${key}/${imdbID}`).then((res) => {
+  return request.get(`${imdbUrlSearch}${key}&t=${movie}`).then((res) => {
+    console.log('BODY :', res.body)
     return res.body
   })
 }
