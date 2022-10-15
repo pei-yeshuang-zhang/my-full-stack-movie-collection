@@ -33,7 +33,6 @@ export function getTheMovies() {
   // call api
   return async (dispatch) => {
     const movieArr = await fetchAllMovies() // get the data that returned from api, which is the res.body
-    console.log('THUNK: ', movieArr)
     // dispatch action
     dispatch(saveMovies(movieArr))
   }
