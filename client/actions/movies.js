@@ -45,6 +45,7 @@ export function addAMovie(movie) {
       title: movie.Title,
       img: movie.Poster,
       imdb_id: movie.imdbID,
+      plot: movie.Plot,
     }
 
     const movieFromServer = await postMovie(tidyMovie)

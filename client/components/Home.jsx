@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 
 function Home() {
   const movies = useSelector((store) => store.movies)
-  // console.log(movies)
   const unwatched = movies.filter((movie) => movie.watched == false)
   const watched = movies.filter((movie) => movie.watched == true)
 

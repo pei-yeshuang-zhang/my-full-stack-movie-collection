@@ -10,7 +10,6 @@ function AddMovie() {
   const alreayAddedIds = useSelector((store) =>
     store.movies.map((movie) => movie.imdb_id)
   )
-  console.log('alreayAddedIds: ', alreayAddedIds)
 
   const [movieSearch, setMovieSearch] = useState('')
   const [results, setResults] = useState(null)
@@ -18,7 +17,7 @@ function AddMovie() {
 
   const handleSearch = async (e) => {
     e.preventDefault()
-    // console.log('SUBMIT', movieSearch)
+
     const movieSuggestions = await searchForMovie(movieSearch)
     setResults(movieSuggestions)
     setMovieSearch('') // Set the input value back to empty
