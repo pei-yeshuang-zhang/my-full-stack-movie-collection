@@ -28,7 +28,7 @@ function Home() {
         return (
           <div key={movie.id}>
             <img className="home-img" src={movie.img} alt="movie" />
-            <Link to={`/movie/${movie.id}`}>
+            <Link to={`/movie/${movie.imdb_id}`}>
               <p>{movie.title}</p>
             </Link>
             <p>Wathched: {movie.watched}</p>
