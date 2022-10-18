@@ -8,7 +8,7 @@ function MovieDetails() {
   const movie = movies.filter((movie) => movie.imdb_id === imdb_id)
 
   const [watched, setWatched] = useState(movie[0].watched)
-  console.log('UseState: ', watched)
+  // console.log('UseState: ', watched)
 
   const handleWatched = () => {
     setWatched(!watched)
