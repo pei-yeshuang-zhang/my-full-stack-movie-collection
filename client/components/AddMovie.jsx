@@ -13,6 +13,7 @@ function AddMovie() {
 
   const [movieSearch, setMovieSearch] = useState('')
   const [results, setResults] = useState(null)
+  console.log('In add: ', results)
   const dispatch = useDispatch()
 
   const handleSearch = async (e) => {
