@@ -1,8 +1,9 @@
-const { fetchAllMovies, postMovie } = require('../apis/movies')
+const { fetchAllMovies, postMovie, deleteMovie } = require('../apis/movies')
 
 // Variables
 export const SAVE_MOVIES = 'SAVE_MOVIES'
 export const SAVE_ONE_MOVIE = 'SAVE_ONE_MOVIE'
+export const DEL_ONE_MOVIE = 'DEL_ONE_MOVIE'
 
 // Action creators
 function saveMovies(moviesArr) {
@@ -16,6 +17,13 @@ function saveOneMovie(movieObj) {
   return {
     type: SAVE_ONE_MOVIE,
     payload: movieObj,
+  }
+}
+
+function delOneMovie(imdbID) {
+  return {
+    type: DEL_ONE_MOVIE,
+    payload: imdbID,
   }
 }
 
@@ -40,5 +48,13 @@ export function addAMovie(movie) {
 
     const movieFromServer = await postMovie(tidyMovie)
     dispatch(saveOneMovie(movieFromServer))
+  }
+}
+
+export function deleteAMovie(imdbID) {
+  return async (dispatch) => {
+    console.log('in action: ', imdbID)
+    const id = await deleteMovie(imdbID)
+    dispatch(delOneMovie(id))
   }
 }

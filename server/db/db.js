@@ -19,6 +19,7 @@ function updateWatched(imdbID, booleanValue, db = conn) {
 
 // DELETE
 function deleteMovie(imdbID, db = conn) {
+  console.log('in db.delete ', imdbID)
   return db('movies').where('movie.imdb_id', imdbID).delete()
 }
 

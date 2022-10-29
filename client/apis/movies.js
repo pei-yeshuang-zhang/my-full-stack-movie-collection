@@ -14,3 +14,10 @@ export function postMovie(movie) {
       return res.body
     })
 }
+
+export function deleteMovie(imdbID) {
+  return request.delete(`/api/v1/movies/${imdbID}`).then((res) => {
+    console.log('in local api', res.body)
+    return res.body
+  })
+}

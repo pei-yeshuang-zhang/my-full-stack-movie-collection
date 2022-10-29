@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { addAMovie } from '../actions/movies'
+import { addAMovie, deleteAMovie } from '../actions/movies'
 
 function MovieDetails() {
   const { imdb_id } = useParams()
@@ -27,8 +27,8 @@ function MovieDetails() {
 
   const handleDelete = (e, theMovie) => {
     e.preventDefault()
-    dispatch(deleteAMovie(theMovie))
-    console.log('handleDelete: ', theMovie)
+    dispatch(deleteAMovie(theMovie.imdb_id))
+    console.log('handleDelete: ', theMovie.imdb_id)
   }
 
   return (

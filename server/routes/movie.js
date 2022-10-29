@@ -36,9 +36,10 @@ router.post('/', async (req, res) => {
 
 // DELETE
 router.delete('/', async (req, res) => {
+  const id = Number(req.imdbID)
   try {
-    const deletedMovie = await db.deleteMovie()
-    res.json(deletedMovie)
+    await db.deleteMovie(id)
+    res.json()
   } catch (err) {
     res.status(500).json({ msg: err.message })
   }
