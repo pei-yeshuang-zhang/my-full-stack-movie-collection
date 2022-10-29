@@ -25,6 +25,12 @@ function MovieDetails() {
     }
   }
 
+  const handleDelete = (e, theMovie) => {
+    e.preventDefault()
+    dispatch(deleteAMovie(theMovie))
+    console.log('handleDelete: ', theMovie)
+  }
+
   return (
     <>
       <img src={movie && movie.img} alt="movie"></img>
@@ -34,6 +40,7 @@ function MovieDetails() {
         <button onClick={(e) => handleWatched(e, movie)}>
           {watched == true ? 'Wathched' : 'Mark as watched'}
         </button>
+        <button onClick={(e) => handleDelete(e, movie)}>Delete</button>
       </div>
 
       <p>{movie && movie.plot}</p>
