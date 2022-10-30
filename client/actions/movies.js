@@ -21,6 +21,7 @@ function saveOneMovie(movieObj) {
 }
 
 function delOneMovie(imdbID) {
+  console.log('in action ', imdbID)
   return {
     type: DEL_ONE_MOVIE,
     payload: imdbID,
@@ -53,8 +54,8 @@ export function addAMovie(movie) {
 
 export function deleteAMovie(imdbID) {
   return async (dispatch) => {
-    console.log('in action: ', imdbID)
     const id = await deleteMovie(imdbID)
+    console.log('in thunk ', imdbID, id)
     dispatch(delOneMovie(id))
   }
 }

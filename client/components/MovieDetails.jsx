@@ -4,14 +4,14 @@ import { useSelector, useDispatch } from 'react-redux'
 import { addAMovie, deleteAMovie } from '../actions/movies'
 
 function MovieDetails() {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const { imdb_id } = useParams()
+
   const movies = useSelector((store) => store.movies)
   const movie = movies.filter((movie) => movie.imdb_id === imdb_id)[0]
 
   const [watched, setWatched] = useState(movie.watched)
-
-  const dispatch = useDispatch()
 
   // This wouldn't work as 'theMovie' has already been tidied up
   // But 'addAmovie' is looking for a untidied obj
@@ -20,12 +20,11 @@ function MovieDetails() {
   const handleWatched = (e, theMovie) => {
     e.preventDefault()
     setWatched(!watched)
-    if (watched == false) {
+    if (watched === false) {
       dispatch(addAMovie(theMovie))
     }
   }
 
-  // Redirect to home after deleting
   const handleDelete = (e, theMovie) => {
     e.preventDefault()
     dispatch(deleteAMovie(theMovie.imdb_id))
@@ -39,7 +38,7 @@ function MovieDetails() {
 
       <div>
         <button onClick={(e) => handleWatched(e, movie)}>
-          {watched == true ? 'Wathched' : 'Mark as watched'}
+          {watched === true ? 'Wathched' : 'Mark as watched'}
         </button>
         <button onClick={(e) => handleDelete(e, movie)}>Delete</button>
       </div>
