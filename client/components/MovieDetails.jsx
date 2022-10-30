@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { addAMovie, deleteAMovie } from '../actions/movies'
 
 function MovieDetails() {
+  const navigate = useNavigate()
   const { imdb_id } = useParams()
   const movies = useSelector((store) => store.movies)
   const movie = movies.filter((movie) => movie.imdb_id === imdb_id)[0]
@@ -21,14 +22,14 @@ function MovieDetails() {
     setWatched(!watched)
     if (watched == false) {
       dispatch(addAMovie(theMovie))
-      console.log('handleWatched: ', theMovie)
     }
   }
 
+  // Redirect to home after deleting
   const handleDelete = (e, theMovie) => {
     e.preventDefault()
     dispatch(deleteAMovie(theMovie.imdb_id))
-    console.log('handleDelete: ', theMovie.imdb_id)
+    navigate('/')
   }
 
   return (
