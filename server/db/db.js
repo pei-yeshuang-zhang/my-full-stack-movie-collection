@@ -12,15 +12,13 @@ function insertMovie(newMovie, db = conn) {
 
 // TODO: UPDATE
 function updateWatched(imdbID, booleanValue, db = conn) {
-  return db('movies')
-    .where('movie.imdb_id', imdbID)
-    .update({ watched: booleanValue })
+  return db('movies').where('imdb_id', imdbID).update({ watched: booleanValue })
 }
 
 // DELETE
 function deleteMovie(imdbID, db = conn) {
   console.log('in db.delete ', imdbID)
-  return db('movies').where('movie.imdb_id', imdbID).delete()
+  return db('movies').where('imdb_id', imdbID).delete()
 }
 
 module.exports = {

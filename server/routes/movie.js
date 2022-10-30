@@ -36,7 +36,6 @@ router.post('/', async (req, res) => {
 
 // DELETE
 router.delete('/:imdbID', async (req, res) => {
-  // const id = Number(req.imdbID)
   try {
     const removed = await db.deleteMovie(req.params.imdbID)
     console.log('removed ', removed)
