@@ -24,19 +24,14 @@ Users will be able to view a list of all the movies they wish to watch, look at 
 
 ## External API
 
-There is an unofficial [imdb api](https://imdb-api.com/) will be used to look up movies and get more information about them. It requires registering and being issued with an API key.
-
-The routes of the API I will be using are:
-
-- [Search Movie](https://imdb-api.com/api/#SearchMovie-header)
-- [Title](https://imdb-api.com/api/#Title-header)
+There is an unofficial [omdb api](https://www.omdbapi.com/) will be used to look up movies and get more information about them. It requires registering and being issued with an API key.
 
 ## Wireframes
 
 Home page - `/`
 ![home](/.docs/images/home.png)
 
-Display one movie - `/movie/:id`
+Display one movie - `/movie/:imdb_id`
 ![home](/.docs/images/display.png)
 
 Add a new movie - `/add`
@@ -71,8 +66,8 @@ Once the request for movies from the server side has completed, the array should
 |---|---|---|---|
 | /api/v1/movies | GET | -- | Array of movie objects |
 | /api/v1/movies | POST | New movie object | Object containing new id |
-| /api/v1/movies/:id | PUT | Object with edited details | Movie object |
-| /api/v1/movies/:id | DELETE | -- | -- |
+| /api/v1/movies/:imdb_id | PUT | Object with edited details | Movie object |
+| /api/v1/movies/:imdb_id | DELETE | -- | -- |
 
 ## Database design
 

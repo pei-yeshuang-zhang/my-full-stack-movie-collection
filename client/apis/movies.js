@@ -11,6 +11,14 @@ export function postMovie(movie) {
     .post('/api/v1/movies')
     .send(movie)
     .then((res) => {
+      console.log('in post api ', res.body)
       return res.body
     })
+}
+
+export function deleteMovie(imdbID) {
+  return request.delete(`/api/v1/movies/${imdbID}`).then((res) => {
+    // console.log('in delete api', res)
+    return res.body
+  })
 }

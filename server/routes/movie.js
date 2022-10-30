@@ -20,20 +20,29 @@ router.post('/', async (req, res) => {
   // res.sendStatus(200)
   try {
     const idArr = await db.insertMovie(req.body)
-
+    // console.log('idArr: ', idArr)
     const newObj = {
       id: idArr[0],
       ...req.body,
       watched: false,
     }
-
     res.json(newObj)
   } catch (err) {
     res.status(500).json({ msg: err.message })
   }
 })
 
-// PATCH
+// TODO: PATCH
+
 // DELETE
+router.delete('/:imdbID', async (req, res) => {
+  try {
+    const removed = await db.deleteMovie(req.params.imdbID)
+    console.log('removed ', removed)
+    res.json(removed)
+  } catch (err) {
+    res.status(500).json({ msg: err.message })
+  }
+})
 
 module.exports = router

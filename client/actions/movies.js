@@ -1,10 +1,9 @@
-const { fetchAllMovies, postMovie } = require('../apis/movies')
-// const { fetchMovieDetails } = require('../apis/imdb')
+const { fetchAllMovies, postMovie, deleteMovie } = require('../apis/movies')
 
 // Variables
 export const SAVE_MOVIES = 'SAVE_MOVIES'
 export const SAVE_ONE_MOVIE = 'SAVE_ONE_MOVIE'
-// export const SAVE_MOVIE_DETAILS = 'SAVE_MOVIE_DETAILS'
+export const DEL_ONE_MOVIE = 'DEL_ONE_MOVIE'
 
 // Action creators
 function saveMovies(moviesArr) {
@@ -21,12 +20,13 @@ function saveOneMovie(movieObj) {
   }
 }
 
-// function saveMovieDetails(movieDetails) {
-//   return {
-//     type: SAVE_MOVIE_DETAILS,
-//     payload: movieDetails,
-//   }
-// }
+function delOneMovie(imdbID) {
+  console.log('in action ', imdbID)
+  return {
+    type: DEL_ONE_MOVIE,
+    payload: imdbID,
+  }
+}
 
 // Thunks: call the api, get data back, then use the action creators to dispatch actions to redux
 export function getTheMovies() {
@@ -52,10 +52,10 @@ export function addAMovie(movie) {
   }
 }
 
-// export function getMovieDetails() {
-//   return async (dispatch) => {
-//     const movieDetails = await fetchMovieDetails()
-//     console.log('Details From thunk: ', movieDetails)
-//     dispatch(saveMovieDetails(movieDetails))
-//   }
-// }
+export function deleteAMovie(imdbID) {
+  return async (dispatch) => {
+    const id = await deleteMovie(imdbID)
+    console.log('in thunk ', imdbID, id)
+    dispatch(delOneMovie(id))
+  }
+}

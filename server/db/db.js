@@ -6,11 +6,24 @@ function getAllMovies(db = conn) {
 }
 
 // POST
-function insertMovie(newMoive, db = conn) {
-  return db('movies').insert(newMoive)
+function insertMovie(newMovie, db = conn) {
+  return db('movies').insert(newMovie)
+}
+
+// TODO: UPDATE
+function updateWatched(imdbID, booleanValue, db = conn) {
+  return db('movies').where('imdb_id', imdbID).update({ watched: booleanValue })
+}
+
+// DELETE
+function deleteMovie(imdbID, db = conn) {
+  console.log('in db.delete ', imdbID)
+  return db('movies').where('imdb_id', imdbID).delete()
 }
 
 module.exports = {
   getAllMovies,
   insertMovie,
+  updateWatched,
+  deleteMovie,
 }
