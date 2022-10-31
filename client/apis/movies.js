@@ -16,7 +16,7 @@ export function postMovie(movie) {
     })
 }
 
-export function deleteMovie(imdbID) {
+export function fetchDeleteMovie(imdbID) {
   return request.delete(`/api/v1/movies/${imdbID}`).then((res) => {
     // console.log('in delete api', res)
     return res.body

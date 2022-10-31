@@ -1,4 +1,8 @@
-const { fetchAllMovies, postMovie, deleteMovie } = require('../apis/movies')
+const {
+  fetchAllMovies,
+  postMovie,
+  fetchDeleteMovie,
+} = require('../apis/movies')
 
 // Variables
 export const SAVE_MOVIES = 'SAVE_MOVIES'
@@ -54,7 +58,7 @@ export function addAMovie(movie) {
 
 export function deleteAMovie(imdbID) {
   return async (dispatch) => {
-    const id = await deleteMovie(imdbID)
+    const id = await fetchDeleteMovie(imdbID)
     console.log('in thunk ', imdbID, id)
     dispatch(delOneMovie(id))
   }
