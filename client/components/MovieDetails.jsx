@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { addAMovie, deleteAMovie } from '../actions/movies'
+import { deleteAMovie } from '../actions/movies'
 
 function MovieDetails() {
   const dispatch = useDispatch()
