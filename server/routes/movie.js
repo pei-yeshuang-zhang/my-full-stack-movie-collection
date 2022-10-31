@@ -32,6 +32,17 @@ router.post('/', async (req, res) => {
 })
 
 // TODO: PATCH
+router.patch('/:imdbID', async (req, res) => {
+  const imdbID = req.params.imdbID
+  const isWatched = await db.getOneMoive(imdbID)
+  try {
+    const updatedWatched = await db.updateWatched(req.params.imdbID)
+
+    res.json({ watched: updatedWatched })
+  } catch (err) {
+    res.status(500).json({ msg: err.message })
+  }
+})
 
 // DELETE
 router.delete('/:imdbID', async (req, res) => {

@@ -21,7 +21,10 @@ function MovieDetails() {
     e.preventDefault()
     setWatched(!watched)
     if (watched === false) {
-      dispatch(addAMovie(theMovie))
+      // maybe two diffrent actions
+      // one is if watched === false
+      // one is if watched === true
+      console.log('switch to true ', theMovie)
     }
   }
 
