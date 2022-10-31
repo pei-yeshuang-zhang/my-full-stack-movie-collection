@@ -35,6 +35,7 @@ router.post('/', async (req, res) => {
 router.patch('/:imdbID', async (req, res) => {
   const imdbID = req.params.imdbID
   const isWatched = await db.getOneMoive(imdbID)
+  // if iswatched === false, try...
   try {
     const updatedWatched = await db.updateWatched(req.params.imdbID)
 
