@@ -20,7 +20,6 @@ router.post('/', async (req, res) => {
   // res.sendStatus(200)
   try {
     const idArr = await db.insertMovie(req.body)
-    // console.log('idArr: ', idArr)
     const newObj = {
       id: idArr[0],
       ...req.body,
