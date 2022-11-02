@@ -14,7 +14,7 @@ function insertMovie(newMovie, db = conn) {
   return db('movies').insert(newMovie)
 }
 
-// TODO: UPDATE
+// TODO: UPDATE (Not in use)
 function updateWatched(imdbID, booleanValue, db = conn) {
   return db('movies').where('imdb_id', imdbID).update({ watched: booleanValue })
 }
