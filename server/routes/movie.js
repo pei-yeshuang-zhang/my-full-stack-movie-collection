@@ -34,12 +34,12 @@ router.post('/', async (req, res) => {
 // PATCH
 router.patch('/:imdbID', async (req, res) => {
   const imdbID = req.params.imdbID
-  const isWatched = await db.getOneMovie(imdbID) // isWatched : {watched : 0}
-  console.log('in routes isWatched', isWatched)
+  const watched = await db.getOneMovie(imdbID) // watched : {watched: 0}
+  console.log('in routes watched', watched)
   res.sendStatus(200)
-  if (isWatched) {
+  if (watched) {
     try {
-      res.json({ theFirst: !theFirst }) // return a object that is updated
+      res.json({ watched: !watched })
     } catch (err) {
       res.status(500).json({ msg: err.message })
     }

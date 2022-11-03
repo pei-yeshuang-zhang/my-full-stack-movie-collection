@@ -67,17 +67,14 @@ export function addAMovie(movie) {
 export function deleteAMovie(imdbID) {
   return async (dispatch) => {
     const id = await fetchDeleteMovie(imdbID)
-    console.log('in thunk ', imdbID, id)
     dispatch(delOneMovie(id))
   }
 }
 
-export function updWatched(imdbID, watchedData) {
+export function updWatched(imdbID, booleanValue) {
   return async (dispatch) => {
-    const booleanObj = await fetchIsWatched(imdbID, watchedData)
-    console.log('in action watchedData', watchedData)
-    console.log('in action imdbID', imdbID)
-    console.log('in action booleanObj', booleanObj)
+    const booleanObj = await fetchIsWatched(imdbID, booleanValue)
+    console.log('in actions ', booleanObj)
     dispatch(updateIsWatched(booleanObj))
   }
 }

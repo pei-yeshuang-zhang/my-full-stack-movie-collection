@@ -13,14 +13,10 @@ function MovieDetails() {
 
   const [watched, setWatched] = useState(movie.watched)
 
-  // This wouldn't work as 'theMovie' has already been tidied up
-  // But 'addAmovie' is looking for a untidied obj
-  // Instead of add a new movie into database
-  // What I should do is to UPDATE the watched value from false to true in our database
   const handleWatched = (e, movie) => {
     e.preventDefault()
     setWatched(!watched)
-    dispatch(updWatched(movie.imdb_id, movie))
+    dispatch(updWatched(movie.imdb_id, watched))
   }
 
   const handleDelete = (e, movie) => {
