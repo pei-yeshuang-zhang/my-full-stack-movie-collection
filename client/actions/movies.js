@@ -2,12 +2,14 @@ const {
   fetchAllMovies,
   postMovie,
   fetchDeleteMovie,
+  fetchIsWatched,
 } = require('../apis/movies')
 
 // Variables
 export const SAVE_MOVIES = 'SAVE_MOVIES'
 export const SAVE_ONE_MOVIE = 'SAVE_ONE_MOVIE'
 export const DEL_ONE_MOVIE = 'DEL_ONE_MOVIE'
+export const UPDATE_ISWATCHED = 'UPDATE_ISWATCHED'
 
 // Action creators
 function saveMovies(moviesArr) {
@@ -24,11 +26,17 @@ function saveOneMovie(movieObj) {
   }
 }
 
-function delOneMovie(imdbID) {
-  console.log('in action ', imdbID)
+function delOneMovie(data) {
   return {
     type: DEL_ONE_MOVIE,
-    payload: imdbID,
+    payload: data,
+  }
+}
+
+function updateIsWatched(data) {
+  return {
+    type: UPDATE_ISWATCHED,
+    payload: data,
   }
 }
 
@@ -61,5 +69,15 @@ export function deleteAMovie(imdbID) {
     const id = await fetchDeleteMovie(imdbID)
     console.log('in thunk ', imdbID, id)
     dispatch(delOneMovie(id))
+  }
+}
+
+export function updWatched(imdbID, watchedData) {
+  return async (dispatch) => {
+    const booleanObj = await fetchIsWatched(imdbID, watchedData)
+    console.log('in action watchedData', watchedData)
+    console.log('in action imdbID', imdbID)
+    console.log('in action booleanObj', booleanObj)
+    dispatch(updateIsWatched(booleanObj))
   }
 }

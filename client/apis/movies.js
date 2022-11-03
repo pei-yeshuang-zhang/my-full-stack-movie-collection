@@ -27,7 +27,9 @@ export function fetchIsWatched(imdbID, data) {
     .patch(`/api/v1/movies/${imdbID}`)
     .send(data)
     .then((res) => {
-      console.log('in patch api ', res.body)
+      console.log('in patch api, imdbID', imdbID)
+      console.log('in patch api, res.body', res.body)
+      console.log('in patch api, data', data)
       return res.body
     })
 }

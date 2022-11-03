@@ -11,6 +11,7 @@ function reducer(state = [], action) {
       return state.filter((movie) => {
         return payload != movie.imdb_id
       })
+    // TODO: UPDATE_ISWATCHED
     default:
       return state
   }
