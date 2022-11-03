@@ -34,10 +34,8 @@ router.post('/', async (req, res) => {
 // PATCH
 router.patch('/:imdbID', async (req, res) => {
   const imdbID = req.params.imdbID
-  const isWatched = await db.getOneMovie(imdbID) // isWatched : [{watched : 0}]
-  const theFirst = isWatched[0]
+  const isWatched = await db.getOneMovie(imdbID) // isWatched : {watched : 0}
   console.log('in routes isWatched', isWatched)
-  console.log('in routes theFirst', theFirst)
   res.sendStatus(200)
   if (isWatched) {
     try {
