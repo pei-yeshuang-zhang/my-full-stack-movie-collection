@@ -6,7 +6,7 @@ function getAllMovies(db = conn) {
 }
 
 function getOneMovie(imdbID, db = conn) {
-  return db('movies').where('imdb_id', imdbID).select('watched') // return a boolean
+  return db('movies').where('imdb_id', imdbID).select('watched')
 }
 
 // POST
