@@ -1,4 +1,9 @@
-import { SAVE_MOVIES, SAVE_ONE_MOVIE, DEL_ONE_MOVIE } from '../actions/movies'
+import {
+  SAVE_MOVIES,
+  SAVE_ONE_MOVIE,
+  DEL_ONE_MOVIE,
+  UPDATE_WATCHED,
+} from '../actions/movies'
 
 function reducer(state = [], action) {
   const { type, payload } = action
@@ -11,7 +16,8 @@ function reducer(state = [], action) {
       return state.filter((movie) => {
         return payload != movie.imdb_id
       })
-    // TODO: UPDATE_ISWATCHED
+    case UPDATE_WATCHED:
+      return payload
     default:
       return state
   }

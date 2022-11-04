@@ -25,11 +25,8 @@ export function fetchDeleteMovie(imdbID) {
 export function fetchIsWatched(imdbID, data) {
   return request
     .patch(`/api/v1/movies/${imdbID}`)
-    .send({ watched: data })
+    .send(data)
     .then((res) => {
-      console.log('in patch api, imdbID', imdbID)
-      console.log('in patch api, data', data)
-      console.log('in patch api, res', res)
       return res.body
     })
 }

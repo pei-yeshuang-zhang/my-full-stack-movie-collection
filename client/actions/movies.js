@@ -9,7 +9,7 @@ const {
 export const SAVE_MOVIES = 'SAVE_MOVIES'
 export const SAVE_ONE_MOVIE = 'SAVE_ONE_MOVIE'
 export const DEL_ONE_MOVIE = 'DEL_ONE_MOVIE'
-export const UPDATE_ISWATCHED = 'UPDATE_ISWATCHED'
+export const UPDATE_WATCHED = 'UPDATE_WATCHED'
 
 // Action creators
 function saveMovies(moviesArr) {
@@ -35,7 +35,7 @@ function delOneMovie(data) {
 
 function updateIsWatched(data) {
   return {
-    type: UPDATE_ISWATCHED,
+    type: UPDATE_WATCHED,
     payload: data,
   }
 }
@@ -71,9 +71,9 @@ export function deleteAMovie(imdbID) {
   }
 }
 
-export function updWatched(imdbID, booleanValue) {
+export function updWatched(imdbID, data) {
   return async (dispatch) => {
-    const booleanObj = await fetchIsWatched(imdbID, booleanValue)
+    const booleanObj = await fetchIsWatched(imdbID, data)
     console.log('in actions ', booleanObj)
     dispatch(updateIsWatched(booleanObj))
   }
