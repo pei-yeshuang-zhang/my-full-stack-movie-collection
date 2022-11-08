@@ -21,9 +21,14 @@ body {
   padding: 1rem;
 }
 
-a {
+.link_detail {
   text-decoration: none;
   color: #ffffff;
+}
+
+.link_add {
+  text-decoration: none;
+  color: #272727;
 }
 
 .main {
@@ -36,6 +41,7 @@ h1 {
   font-weight: 400;
   text-align: center;
 }
+
 
 img {
   height: auto;
