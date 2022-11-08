@@ -24,8 +24,14 @@ function App() {
           <h1>The Flicks</h1>
         </header>
         <div>
-          <h2>
-            {isHome ? <Link className='link_add' to="/add">Add Movies</Link> : <Link to="/">Home</Link>}
+          <h2 className="link_add">
+            {isHome ? (
+              <Link to="/add" className="link_add">
+                Add Movies
+              </Link>
+            ) : (
+              <Link to="/">Home</Link>
+            )}
           </h2>
         </div>
       </section>
