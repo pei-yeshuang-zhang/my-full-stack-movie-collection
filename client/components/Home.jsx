@@ -15,16 +15,16 @@ function Home() {
           <div className="main">
              <ul className="cards">
               <li className="cards_item">
-                  <div className='card' key={movie.id}>
+                  <div className="card" key={movie.id}>
                     <img className="card_image" src={movie.img} alt="movie" />
                     <div className="card_content">
-                      <Link className='card_title link_detail' to={`/movie/${movie.imdb_id}`}>
+                      <Link className="card_title link_detail" to={`/movie/${movie.imdb_id}`}>
                         <h2 >{movie.title}</h2>
                       </Link>
                       <p class="card_text">{movie.plot}</p>
                       <button className="btn card_btn">
-                        <Link className='link_detail' to={`/movie/${movie.imdb_id}`}>
-                        Read More
+                        <Link className="link_detail" to={`/movie/${movie.imdb_id}`}>
+                          Read More
                         </Link>
                       </button>
                     </div>
@@ -41,16 +41,16 @@ function Home() {
           <div className="main">
             <ul className="cards">
             <li className="cards_item">
-                <div className='card' key={movie.id}>
+                <div className="card" key={movie.id}>
                   <img className="card_image" src={movie.img} alt="movie" />
                     <div className="card_content">
-                    <Link className='card_title link_detail' to={`/movie/${movie.imdb_id}`}>
+                    <Link className="card_title link_detail" to={`/movie/${movie.imdb_id}`}>
                         <h2 >{movie.title}</h2>
                       </Link>
                       <p class="card_text">{movie.plot}</p>
                       <button className="btn card_btn">
-                        <Link className='link_detail' to={`/movie/${movie.imdb_id}`}>
-                        Read More
+                        <Link className="link_detail" to={`/movie/${movie.imdb_id}`}>
+                          Read More
                         </Link>
                     </button>
                   </div>
