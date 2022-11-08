@@ -1,4 +1,4 @@
-## The Flicks
+## The Flicks 🎬
 
 ## In this readme
 
@@ -39,7 +39,7 @@ Run the following commands in terminal:
     $ npm run dev
     ```
 
-    
+
 ## External API
 
 There is an unofficial [omdb api](https://www.omdbapi.com/) will be used to look up movies and get more information about them. It requires registering and being issued with an API key.
