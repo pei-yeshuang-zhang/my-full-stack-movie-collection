@@ -1,6 +1,9 @@
+## The Flicks 🎬
+
 ## In this readme
 
   - [The idea](#the-idea)
+  - [Setup](#Setup)
   - [External API](#external-api)
   - [Wireframes](#wireframes)
   - [Redux store](#redux-store)
@@ -21,6 +24,21 @@ This app is going to help users keep track of movies they want to watch, essenti
 An [external api](#external-api) will be used to provide information and images for these movies.
 
 Users will be able to view a list of all the movies they wish to watch, look at one individual movie and see more info about it, and look up a new movie and add it to their watchlist. Once they have watched a movie they should then be able to mark a movie as watched or delete it if they no longer wish to watch it.
+
+
+## Setup
+
+Clone this repo and `cd` into the new directory
+
+Run the following commands in terminal:
+
+    ```
+    $ npm install
+    $ npm run knex migrate:latest
+    $ npm run knex seed:run
+    $ npm run dev
+    ```
+
 
 ## External API
 
