@@ -25,7 +25,6 @@ function Home() {
                     >
                       <h2 className="card_title">{movie.title}</h2>
                     </Link>
-                    {/* <p class="card_text">{movie.plot}</p> */}
                     <button className="btn card_btn">
                       <Link
                         className="link_detail"
@@ -58,7 +57,6 @@ function Home() {
                     >
                       <h2 className="card_title">{movie.title}</h2>
                     </Link>
-                    {/* <p class="card_text">{movie.plot}</p> */}
                     <button className="btn card_btn">
                       <Link
                         className="link_detail"
