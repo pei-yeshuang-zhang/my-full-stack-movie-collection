@@ -22,7 +22,8 @@ body {
 }
 
 a {
-
+  text-decoration: none;
+  color: #ffffff;
 }
 
 .main {
@@ -96,7 +97,8 @@ img {
 
 .card_content {
   padding: 1rem;
-  background: linear-gradient(to bottom left, #ef8d9c 40%, #ffc39e 100%);
+  background: rgb(238,174,202);
+  background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
 
 .card_title {

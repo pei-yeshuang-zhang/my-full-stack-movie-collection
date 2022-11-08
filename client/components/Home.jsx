@@ -22,7 +22,6 @@ function Home() {
                         <h2 className='care_title'>{movie.title}</h2>
                       </Link>
                       <p class="card_text">{movie.plot}</p>
-                      <p>Wathched: {movie.watched}</p>
                       <button className="btn card_btn">
                       <Link to={`/movie/${movie.imdb_id}`}>
                         Read More
@@ -49,7 +48,6 @@ function Home() {
                       <h2 className='care_title'>{movie.title}</h2>
                     </Link>
                     <p class="card_text">{movie.plot}</p>
-                    <p>Wathched: {movie.watched}</p>
                     <button className="btn card_btn">
                       <Link to={`/movie/${movie.imdb_id}`}>
                         Read More
@@ -62,6 +60,7 @@ function Home() {
           </div>
         )
       })}
+      <h3 className="made_by">Made by Pei Zhang</h3>
     </>
   )
 }
