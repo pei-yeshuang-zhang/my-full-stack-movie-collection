@@ -34,13 +34,13 @@ router.post('/', async (req, res) => {
 // PATCH
 router.patch('/:imdbID', async (req, res) => {
   const imdbID = req.params.imdbID
-  const isWatched = await db.getOneMoive(imdbID)
-  if (isWatched) {
-    try {
-      res.json({ watched: !isWatched })
-    } catch (err) {
-      res.status(500).json({ msg: err.message })
-    }
+  const data = req.body
+  const watched = await db.updateWatched(imdbID, data)
+  res.sendStatus(200)
+  try {
+    res.json(!watched)
+  } catch (err) {
+    res.status(500).json({ msg: err.message })
   }
 })
 

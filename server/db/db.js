@@ -5,8 +5,8 @@ function getAllMovies(db = conn) {
   return db('movies').select()
 }
 
-function getOneMoive(imdbID, db = conn) {
-  return db('movies').where('imdb_id', imdbID).select('watched')
+function getOneMovie(imdbID, db = conn) {
+  return db('movies').where('imdb_id', imdbID).select().first()
 }
 
 // POST
@@ -14,9 +14,9 @@ function insertMovie(newMovie, db = conn) {
   return db('movies').insert(newMovie)
 }
 
-// TODO: UPDATE
-function updateWatched(imdbID, booleanValue, db = conn) {
-  return db('movies').where('imdb_id', imdbID).update({ watched: booleanValue })
+// TODO: UPDATE (Not in use)
+function updateWatched(imdbID, data, db = conn) {
+  return db('movies').where('imdb_id', imdbID).update(data)
 }
 
 // DELETE
@@ -26,7 +26,7 @@ function deleteMovie(imdbID, db = conn) {
 
 module.exports = {
   getAllMovies,
-  getOneMoive,
+  getOneMovie,
   insertMovie,
   updateWatched,
   deleteMovie,

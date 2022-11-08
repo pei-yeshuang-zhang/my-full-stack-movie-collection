@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { addAMovie, deleteAMovie } from '../actions/movies'
+import { deleteAMovie, updWatched } from '../actions/movies'
 
 function MovieDetails() {
   const dispatch = useDispatch()
@@ -13,24 +13,15 @@ function MovieDetails() {
 
   const [watched, setWatched] = useState(movie.watched)
 
-  // This wouldn't work as 'theMovie' has already been tidied up
-  // But 'addAmovie' is looking for a untidied obj
-  // Instead of add a new movie into database
-  // What I should do is to UPDATE the watched value from false to true in our database
-  const handleWatched = (e, theMovie) => {
+  const handleWatched = (e, movie) => {
     e.preventDefault()
     setWatched(!watched)
-    if (watched === false) {
-      // maybe two diffrent actions
-      // one is if watched === false
-      // one is if watched === true
-      console.log('switch to true ', theMovie)
-    }
+    dispatch(updWatched(movie.imdb_id, watched))
   }
 
-  const handleDelete = (e, theMovie) => {
+  const handleDelete = (e, movie) => {
     e.preventDefault()
-    dispatch(deleteAMovie(theMovie.imdb_id))
+    dispatch(deleteAMovie(movie.imdb_id))
     navigate('/')
   }
 

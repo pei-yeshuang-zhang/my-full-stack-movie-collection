@@ -19,13 +19,16 @@ function App() {
   dispatch(getTheMovies())
   return (
     <>
-      <header className="header">
-        <h1>The Flicks</h1>
-      </header>
-      <div>
-        {isHome ? <Link to="/add">Add Movies</Link> : <Link to="/">Home</Link>}
-      </div>
-      <section className="main" />
+      <section>
+        <header>
+          <h1>The Flicks</h1>
+        </header>
+        <div>
+          <h2>
+            {isHome ? <Link className='link_add' to="/add">Add Movies</Link> : <Link to="/">Home</Link>}
+          </h2>
+        </div>
+      </section>
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/movie/:imdb_id" element={<MovieDetails />}></Route>
