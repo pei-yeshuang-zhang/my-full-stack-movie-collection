@@ -38,6 +38,7 @@ function AddMovie() {
         <input
           type="text"
           id="search"
+          placeholder="Title"
           onChange={handleTyping}
           value={movieSearch} // make the form value mathches the state that has been changed
         />
@@ -52,7 +53,7 @@ function AddMovie() {
             onClick={() => handleAdd(results)}
             disabled={alreayAddedIds.includes(results.imdbID)}
           >
-            Save
+            Save to watch list
           </button>
         </>
       ) : (
