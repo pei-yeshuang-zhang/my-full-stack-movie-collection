@@ -22,7 +22,7 @@ describe('Get all the movies', () => {
     .get('/api/v1/movies')
     .reply(200, fakeMoviesArr)
 
-  it('Should returns the body of the response', () => {
+  test('Should returns the body of the response', () => {
     expect.assertions(3)
     return fetchAllMovies().then((movies) => {
       expect(movies).toHaveLength(2)
