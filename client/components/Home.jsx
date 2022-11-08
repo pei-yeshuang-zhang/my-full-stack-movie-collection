@@ -12,12 +12,26 @@ function Home() {
       <h3>Movies to watch:</h3>
       {unwatched.map((movie) => {
         return (
-          <div key={movie.id}>
-            <img className="home-img" src={movie.img} alt="movie" />
-            <Link to={`/movie/${movie.imdb_id}`}>
-              <p>{movie.title}</p>
-            </Link>
-            <p>Wathched: {movie.watched}</p>
+          <div className="main">
+             <ul className="cards">
+              <li className="cards_item">
+                  <div className='card' key={movie.id}>
+                    <img className="card_image" src={movie.img} alt="movie" />
+                    <div className="card_content">
+                      <Link to={`/movie/${movie.imdb_id}`}>
+                        <h2 className='care_title'>{movie.title}</h2>
+                      </Link>
+                      <p class="card_text">{movie.plot}</p>
+                      <p>Wathched: {movie.watched}</p>
+                      <button className="btn card_btn">
+                      <Link to={`/movie/${movie.imdb_id}`}>
+                        Read More
+                      </Link>
+                      </button>
+                    </div>
+                  </div>
+                </li>
+              </ul>
           </div>
         )
       })}
@@ -25,12 +39,26 @@ function Home() {
       <h3>Movies that I{"'"}ve seen:</h3>
       {watched.map((movie) => {
         return (
-          <div key={movie.id}>
-            <img className="home-img" src={movie.img} alt="movie" />
-            <Link to={`/movie/${movie.imdb_id}`}>
-              <p>{movie.title}</p>
-            </Link>
-            <p>Wathched: {movie.watched}</p>
+          <div className="main">
+            <ul className="cards">
+            <li className="cards_item">
+                <div className='card' key={movie.id}>
+                  <img className="card_image" src={movie.img} alt="movie" />
+                    <div className="card_content">
+                    <Link to={`/movie/${movie.imdb_id}`}>
+                      <h2 className='care_title'>{movie.title}</h2>
+                    </Link>
+                    <p class="card_text">{movie.plot}</p>
+                    <p>Wathched: {movie.watched}</p>
+                    <button className="btn card_btn">
+                      <Link to={`/movie/${movie.imdb_id}`}>
+                        Read More
+                      </Link>
+                    </button>
+                  </div>
+                </div>
+              </li>
+            </ul>
           </div>
         )
       })}
