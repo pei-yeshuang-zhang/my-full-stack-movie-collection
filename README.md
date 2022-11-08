@@ -39,6 +39,14 @@ Run the following commands in terminal:
     $ npm run dev
     ```
 
+Open http://localhost:3000/ in your browser
+
+To run the tests:
+
+    ```
+    $ npm test
+    ```
+
 
 ## External API
 
