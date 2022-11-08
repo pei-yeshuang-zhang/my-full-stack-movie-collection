@@ -61,3 +61,12 @@ describe('Insert movie', () => {
     expect(actual.plot).toBe('Plot')
   })
 })
+
+describe('Delete movie', () => {
+  test('Should successfully deletes a intended movie', async () => {
+    await db.deleteMovie('tt2543164', testDb)
+    const actual = await db.getOneMovie(2, testDb)
+
+    expect(actual).toBeUndefined()
+  })
+})

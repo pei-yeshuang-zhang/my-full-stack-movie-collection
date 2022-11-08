@@ -47,8 +47,8 @@ router.patch('/:imdbID', async (req, res) => {
 // DELETE
 router.delete('/:imdbID', async (req, res) => {
   try {
-    const removed = await db.deleteMovie(req.params.imdbID)
-    res.json(removed)
+    await db.deleteMovie(req.params.imdbID)
+    res.json()
   } catch (err) {
     res.status(500).json({ msg: err.message })
   }
