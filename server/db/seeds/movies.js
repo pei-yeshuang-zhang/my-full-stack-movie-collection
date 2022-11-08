@@ -52,7 +52,23 @@ exports.seed = async function (knex) {
       imdb_id: 'tt1683526',
       watched: true,
       img: 'https://m.media-amazon.com/images/M/MV5BMTM3NzQzMDA5Ml5BMl5BanBnXkFtZTcwODA5NTcyNw@@._V1_SX300.jpg',
-      plot: '"A substitute teacher who drifts from classroom to classroom finds a connection to the students and teachers during his latest assignment.',
+      plot: 'A substitute teacher who drifts from classroom to classroom finds a connection to the students and teachers during his latest assignment.',
+    },
+    {
+      id: 7,
+      title: 'Mad Max: Fury Road',
+      imdb_id: 'tt1392190',
+      watched: true,
+      img: 'https://m.media-amazon.com/images/M/MV5BN2EwM2I5OWMtMGQyMi00Zjg1LWJkNTctZTdjYTA4OGUwZjMyXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg',
+      plot: "In a post-apocalyptic wasteland, a woman rebels against a tyrannical ruler in search for her homeland with the aid of a group of female prisoners, a psychotic worshiper, and a drifter named Max.",
+    },
+    {
+      id: 8,
+      title: 'The Sixth Sense',
+      imdb_id: 'tt1392190',
+      watched: false,
+      img: 'https://m.media-amazon.com/images/M/MV5BMWM4NTFhYjctNzUyNi00NGMwLTk3NTYtMDIyNTZmMzRlYmQyXkEyXkFqcGdeQXVyMTAwMzUyOTc@._V1_SX300.jpg',
+      plot: "A frightened, withdrawn Philadelphia boy who communicates with spirits seeks the help of a disheartened child psychologist.",
     },
   ])
 }
