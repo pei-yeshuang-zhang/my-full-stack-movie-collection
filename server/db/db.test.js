@@ -29,7 +29,7 @@ describe('Get all movies', () => {
 
 describe('Get one movie', () => {
   test('Should successfully retrieves intended movie and all properties', async () => {
-    const actual = await db.getOneMovie('tt1375666', testDb)
+    const actual = await db.getOneMovie(3, testDb)
 
     expect(actual.id).toBe(3)
     expect(actual.title).toBe('Inception')
@@ -44,5 +44,20 @@ describe('Get one movie', () => {
     expect.assertions(1)
     const actual = await db.getOneMovie(9, testDb)
     expect(actual).toBeUndefined()
+  })
+})
+
+describe('Insert movie', () => {
+  test('Should successfully adds a movie', async () => {
+    const newMovie = { title: 'New Movie', plot: 'Plot', imdb_id: '000000' }
+    const id = await db.insertMovie(newMovie, testDb)
+    const actual = await db.getOneMovie(id, testDb)
+
+    expect(actual.id).toBe(9)
+    expect(actual.title).toBe('New Movie')
+    expect(actual.imdb_id).toBe('000000')
+    expect(actual.watched).toBeFalsy()
+    expect(actual.img).toBeNull()
+    expect(actual.plot).toBe('Plot')
   })
 })
