@@ -9,7 +9,7 @@
     "build:client": "npm run webpack -- --mode production",
     "build:server": "npm run knex -- migrate:latest",
     "start": "node server",
-    "test": "jest",
+    "test": "jest --watchAll",
     "test:watch": "jest --noStackTrace --watchAll",
     "dev": "run-p dev:client dev:server",
     "dev:client": "npm run webpack -- --watch",
