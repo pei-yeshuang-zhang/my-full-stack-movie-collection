@@ -32,20 +32,16 @@ Clone this repo and `cd` into the new directory
 
 Run the following commands in terminal:
 
-    ```sh
     $ npm install
     $ npm run knex migrate:latest
     $ npm run knex seed:run
     $ npm run dev
-    ```
 
 Open http://localhost:3000/ in your browser
 
 To run the tests:
 
-    ```sh
     $ npm test
-    ```
 
 
 ## External API
