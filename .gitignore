@@ -20,6 +20,3 @@ coverage/*
 
 # Dotenv env settings
 .env
-
-# Key
-key.js
