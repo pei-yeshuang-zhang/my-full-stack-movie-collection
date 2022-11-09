@@ -11,7 +11,6 @@ export function postMovie(movie) {
     .post('/api/v1/movies')
     .send(movie)
     .then((res) => {
-      console.log('in post api ', res.body)
       return res.body
     })
 }
