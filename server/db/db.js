@@ -5,8 +5,8 @@ function getAllMovies(db = conn) {
   return db('movies').select()
 }
 
-function getOneMovie(imdbID, db = conn) {
-  return db('movies').where('imdb_id', imdbID).select().first()
+function getOneMovie(id, db = conn) {
+  return db('movies').where('id', id).select().first()
 }
 
 // POST

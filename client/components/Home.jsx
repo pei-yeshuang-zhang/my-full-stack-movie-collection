@@ -15,22 +15,27 @@ function Home() {
         <ul className="cards">
           {unwatched.map((movie) => {
             return (
-                  <li className="cards_item">
-                      <div className="card" key={movie.id}>
-                        <img className="card_image" src={movie.img} alt="movie" />
-                        <div className="card_content">
-                          <Link className="link_detail" to={`/movie/${movie.imdb_id}`}>
-                            <h2 className="card_title">{movie.title}</h2>
-                          </Link>
-                          {/* <p class="card_text">{movie.plot}</p> */}
-                          <button className="btn card_btn">
-                            <Link className="link_detail" to={`/movie/${movie.imdb_id}`}>
-                              Read More
-                            </Link>
-                          </button>
-                        </div>
-                      </div>
-                    </li>
+              <li className="cards_item" key={movie.id}>
+                <div className="card">
+                  <img className="card_image" src={movie.img} alt="movie" />
+                  <div className="card_content">
+                    <Link
+                      className="link_detail"
+                      to={`/movie/${movie.imdb_id}`}
+                    >
+                      <h2 className="card_title">{movie.title}</h2>
+                    </Link>
+                    <button className="btn card_btn">
+                      <Link
+                        className="link_detail"
+                        to={`/movie/${movie.imdb_id}`}
+                      >
+                        Read More
+                      </Link>
+                    </button>
+                  </div>
+                </div>
+              </li>
             )
           })}
         </ul>
@@ -42,29 +47,33 @@ function Home() {
         <ul className="cards">
           {watched.map((movie) => {
             return (
-                <li className="cards_item">
-                    <div className="card" key={movie.id}>
-                      <img className="card_image" src={movie.img} alt="movie" />
-                        <div className="card_content">
-                        <Link className="link_detail" to={`/movie/${movie.imdb_id}`}>
-                            <h2 className="card_title">{movie.title}</h2>
-                          </Link>
-                          {/* <p class="card_text">{movie.plot}</p> */}
-                          <button className="btn card_btn">
-                            <Link className="link_detail" to={`/movie/${movie.imdb_id}`}>
-                              Read More
-                            </Link>
-                        </button>
-                      </div>
-                    </div>
-                  </li>
+              <li className="cards_item" key={movie.id}>
+                <div className="card">
+                  <img className="card_image" src={movie.img} alt="movie" />
+                  <div className="card_content">
+                    <Link
+                      className="link_detail"
+                      to={`/movie/${movie.imdb_id}`}
+                    >
+                      <h2 className="card_title">{movie.title}</h2>
+                    </Link>
+                    <button className="btn card_btn">
+                      <Link
+                        className="link_detail"
+                        to={`/movie/${movie.imdb_id}`}
+                      >
+                        Read More
+                      </Link>
+                    </button>
+                  </div>
+                </div>
+              </li>
             )
           })}
         </ul>
       </div>
 
       <h3 className="made_by">Made by Pei Zhang</h3>
-
     </>
   )
 }
